@@ -8,6 +8,7 @@ $main-nav-bg: RGBA(255, 255, 255, 1);
 $main-border-line: 1px solid RGBA(46, 50, 145, 0.15);
 $main-border-line-hover: 1px solid RGBA(46, 50, 145, 0.5);
 $main-color-overlay: RGBA(47, 50, 145, 0.2);
+$font-large: 1.3em;
 
 html,
 body,
@@ -18,6 +19,7 @@ body,
 }
 
 .overlay {
+    cursor: pointer;
     display:none;
     width: 100%;
     height: 100%;
@@ -45,7 +47,13 @@ body,
     }
 }
 
+
+.show{
+    display: block;
+}
+
 .current-page {
+    font-size: $font-large; 
     display: none;
 }
 
@@ -150,7 +158,7 @@ body,
         display: flex;
         align-items: center;
         justify-content: center;
-        width: calc(100% - 120px);
+        width: calc(100% - 70px);
     }
 
     .nav {
@@ -185,34 +193,39 @@ body,
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+
+        a, a.current, .toggle-nav-btn, a:hover, a.current:hover,
+        .toggle-nav-btn:hover{
+            width: calc(100% - 30px);
+            margin-top: 4px;
+            padding: 10px 30px;
+            border: 1px solid transparent; 
+        }
+
         a,
         a:hover{ 
             text-align: right;
             display: block;
-            width: calc(100% - 10px);
             padding-right: 30px;
             background-color: transparent;
-            border: none;
         }
 
         .toggle-nav-btn,
         .toggle-nav-btn:hover {
-            height: 47px;
-            width: calc(100% - 10px);
+            height: 40px;
             background: url("../Images/times-solid-heavy.png");
             background-repeat: no-repeat;
-            background-position: 192px center;
+            background-position: 160px center;
         }
-        a:hover, .toggle-nav-btn:hover {
+        a:hover, .toggle-nav-btn:hover, a.current:hover {
             transition: background-color 0.2s;
-            background-color: $main-color-overlay;
-            width: calc(100% - 10px);
+            background-color: $main-color-light;
             border-radius: 3px;
             color: $main-color-heavy;
+            border: $main-border-line;
         }
-        a.current {
-            border: none;
-        }
+
+
     }
 }
 
