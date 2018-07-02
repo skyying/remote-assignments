@@ -7,19 +7,27 @@ $main-button-bg: RGBA(231, 234, 240, 1);
 $main-nav-bg: RGBA(255, 255, 255, 1);
 $main-border-line: 1px solid RGBA(46, 50, 145, 0.15);
 $main-border-line-hover: 1px solid RGBA(46, 50, 145, 0.5);
+$main-color-overlay: RGBA(47, 50, 145, 0.2);
 
 html,
-body {
-    font-family: "roboto", "sans serif";
+body,
+.overlay {
+    font-family: "Roboto", "sans-serif";
     color: $main-color-heavy;
     background: $main-color-light;
 }
 
-.head {
-    // background-color: $main-color-heavy;
-    // color: $main-color-light;
+.overlay {
+    display:none;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-color: $main-color-overlay;
+}
 
-    // background-color: $main-color-heavy;
+.head {
     padding: 0 30px;
     width: 100%;
     height: 48px;
@@ -30,6 +38,15 @@ body {
 
 .head-logo {
     max-width: 230px;
+    > img {
+        width: 22px;
+        height: 22px;
+        vertical-align: middle;
+    }
+}
+
+.current-page {
+    display: none;
 }
 
 .nav {
@@ -43,7 +60,7 @@ body {
         display: inline-flex;
         align-items: center;
         padding: 14px 24px;
-        transition: all 0.2s;
+        // transition: all 0.2s;
         &:hover,
         &:active {
             border-bottom: $main-border-line-hover;
@@ -52,9 +69,14 @@ body {
         &:hover {
             color: RGBA(46, 50, 145, 0.5);
         }
-        &:active {
+        &:active, &:visited {
             color: $main-color-heavy;
         }
+    }
+
+    a.current{
+        font-weight: 800;
+        border-bottom: $main-border-line-hover;
     }
     .toggle-nav-btn {
         display: none;
@@ -107,66 +129,97 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    color: $main-color-heavy;
-    background-color: $main-button-bg;
+    color: $main-button-bg;
+    background-color: $main-color-heavy;
     transition: 0.3s background-color;
     &:hover {
-        color: $main-color-light;
-        background-color: $main-color-heavy;
+        color: $main-color-heavy;
+        border: $main-border-line;
+        background-color: $main-color-light;
     }
 }
 
 @media screen and (max-width: 800px) {
     .head {
         padding-right: 0;
+        > img {
+            margin-left: 30px;
+        }
     }
+    .current-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(100% - 120px);
+    }
+
     .nav {
+        position: absolute;
+        right: 0;
+        width: 80px;
+        cursor: pointer;
+
         a {
             display: none;
         }
-        .toggle-nav-btn {
+
+        .toggle-nav-btn,
+        .toggle-nav-btn:hover {
             height: 47px;
             background: url("../Images/heavy.png");
             background-repeat: no-repeat;
-            background-size: 17px 13px;
+            background-size: 15px 11px;
             background-position: center center;
             display: block;
-            padding: 14px 46px;
-            &:hover {
-                background: url("../Images/light.png");
-                background-repeat: no-repeat;
-                background-size: 17px 13px;
-                background-position: center center;
-                background-color: $main-color-heavy;
-            }
+            width: 100%;
         }
     }
 
     .open {
-        // .shadow {
-        //     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        //         0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        // }
-        transition: 3s width;
-        max-width: 200px;
-        background-color: $main-nav-bg;
+        transition: width 0.2s;
+        width: 240px;
+        background-color: $main-item-bg;
         height: 100%;
         position: fixed;
         right: 0;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        a {
-            display: inline-block;
-            width: 100%;
+        a,
+        a:hover{ 
+            text-align: right;
+            display: block;
+            width: calc(100% - 10px);
+            padding-right: 30px;
+            background-color: transparent;
+            border: none;
         }
-        .toggle-nav-btn {
-            background-position: center center;
+
+        .toggle-nav-btn,
+        .toggle-nav-btn:hover {
+            height: 47px;
+            width: calc(100% - 10px);
+            background: url("../Images/times-solid-heavy.png");
+            background-repeat: no-repeat;
+            background-position: 192px center;
+        }
+        a:hover, .toggle-nav-btn:hover {
+            transition: background-color 0.2s;
+            background-color: $main-color-overlay;
+            width: calc(100% - 10px);
+            border-radius: 3px;
+            color: $main-color-heavy;
+        }
+        a.current {
+            border: none;
         }
     }
 }
 
 @media screen and (max-width: 500px) {
+    .head {
+        padding-right: 0;
+    }
     .main-content {
         .item {
             width: calc(100%);
