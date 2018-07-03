@@ -1,4 +1,3 @@
-import "./style/reset.scss";
 import "./style/main.scss";
 import logo from "./Images/logo.svg";
 
