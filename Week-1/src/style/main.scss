@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import  url("https://fonts.googleapis.com/css?family=Roboto");
 @import "./reset.scss";
 
 $main-color-heavy: RGBA(46, 50, 145, 1);
@@ -20,13 +20,13 @@ body,
 }
 
 
-.overlay {
+.overlay{
     cursor: pointer;
-    display: none;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
+    display: none;
     position: absolute;
     background-color: $main-color-overlay;
 }
@@ -101,7 +101,11 @@ body,
 .banner {
     width: 100%;
     background-color: $main-item-bg;
+    cursor: pointer;
     min-height: 260px;
+    &:hover{
+        background-color: #fff;
+    }
 }
 
 .main {
@@ -149,6 +153,13 @@ body,
     }
 }
 
+
+@media screen and ( min-width: 800px) {
+   .show {
+        display: none; 
+   }
+}
+
 @media screen and (max-width: 800px) {
     .head {
         padding-right: 0;
@@ -156,12 +167,14 @@ body,
             margin-left: 30px;
         }
     }
+
     .current-page {
         display: flex;
         align-items: center;
         justify-content: center;
         width: calc(100% - 70px);
     }
+
 
     .nav {
         position: absolute;
