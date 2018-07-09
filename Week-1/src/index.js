@@ -8,6 +8,9 @@ let links = document.querySelectorAll(".nav>a");
 let logoContainer = document.querySelector(".head-logo > img");
 let open = document.querySelector(".open");
 let overlay = document.querySelector(".overlay");
+let banner = document.querySelector(".banner");
+
+
 logoContainer.src = logo;
 
 function toggle(obj, objClassName) {
@@ -61,3 +64,9 @@ overlay.addEventListener(
     },
     false,
 );
+
+
+banner.addEventListener("click", function(e) {
+    this.innerHTML = "<h2>Have a Good Time!</h2>";
+});
+
