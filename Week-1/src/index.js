@@ -24,16 +24,14 @@ let isAllLoaded = false;
 logoContainer.src = logo;
 
 // load more content
-function addItems(container, itemNum=4) {
+const addItems = (container, itemNum = 4) => {
     for (let i = 0; i < itemNum; i++) {
         let element = document.createElement("div");
         element.innerHTML = "Project details";
-        element.classList.add("item");
-        element.classList.add("row-item");
+        element.className = "item row-item";
         container.appendChild(element);
     }
-
-}
+};
 
 //scroll to top of current page
 const scrollToTop = () => {
@@ -53,6 +51,7 @@ const scrollToBottom = () => {
 
 //load more content
 const loadContent = () => {
+
     if (mainContent.childElementCount < TOTAL_ITEM) {
         addItems(mainContent);
         scrollToBottom();
