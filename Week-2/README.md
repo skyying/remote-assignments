@@ -20,9 +20,8 @@ const sum = (...nums) => {
 
 💻 [code here](./sum.js)
 
-
-
 <br>
+
 ### 2. Create object matches 
 
 Given a function like below, try at least two different ways to create objects as it args.
@@ -46,8 +45,8 @@ I tried four different ways to create an object.
 💻 [code here](./createObject.js)
 
 
-
 <br>
+
 ### 3. HTML DOM and Event Handling
 
 ([View Demo](https://skyying.github.io/remote-assignments/Week-1/dist/index.html))
@@ -56,26 +55,27 @@ I tried four different ways to create an object.
 2. Toggle menu effect  
 3. Show more contents after click more button
 
-
 <br>
 
 ![screenshot](./screen.gif)
 
-
-
 <br>
+
 ### 4. TwoSum 
 
 Given an array, and a target number, return indexs of any two elements that their sum is the given target number. 
 
+<br>
 
-##### if an array is not sorted
+#### if an array is not sorted
 
 If a given array is sorted, then for every element, we can use hash to query if a complement exsit or not. Every element, can either already have a complement, if a complement exists, return index of current index and complement's index, else add current element and their index to hash table. Hash only take O(1) to query, there are n elements, so the worse case of time compleixity will be O(n).
 
 💻 [Code Here](./twoSum.js)
 
-##### if an array is sorted
+<br>
+
+#### if an array is sorted
 
 there are many ways to do this, one is using sliding window method, or binary search, which only take o(log N) time;
 
