@@ -1,7 +1,8 @@
-// tasks: 
+// Assignment
 // try using at least two ways to create a matching object as a parameter of calculate function.
 
 
+// the given calculate function
 function calculate(args) {
     let result;
     if (args.op === "+") {
@@ -16,9 +17,10 @@ function calculate(args) {
 
 
 
-// 4 ways to create a valid object
 
-// 1. add property by "." dot
+// 4 ways to create a valid object to pass as args to calculate function
+
+// 1. add property by "."
 let dataTypeA = {};
 dataTypeA.n1 = 5;
 dataTypeA.n2 = 5;

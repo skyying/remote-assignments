@@ -17,6 +17,7 @@ let toggleBtn = document.querySelector(".toggle-nav-btn"),
 
 //constant and variable
 let TOTAL_ITEM = 12;
+
 // if content exceeds TOTAL_ITEM;
 let isAllLoaded = false;
 
@@ -69,6 +70,8 @@ const loadContent = () => {
 
 // Responsive menu
 const toggleNav = () => {
+
+    if(window.innerWidth > 800 ) return;
     if (navBar.classList.contains("open")) {
         navBar.classList.remove("open");
         overlay.classList.remove("show");
