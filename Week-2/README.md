@@ -10,15 +10,15 @@ This week, I add some interaction to the responsive page made last week. Users c
 ## Tasks
 
 
-### 1. Write a function to sum all args
+### 1. Write a function to find max value of args
 
 ```
-const sum = (...nums) => {
-    return nums.reduce((sum, val) => sum + val, 0);
+const max = (...numbers) => {
+    return numbers.reduce((max, val) => Math.max(val, max), Number.MIN_VALUE);
 }
 ```
 
-💻 [code here](./sum.js)
+💻 [code here](./max.js)
 
 <br>
 
