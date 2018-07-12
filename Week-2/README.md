@@ -69,7 +69,7 @@ Given an array, and a target number, return indexs of any two elements that thei
 
 #### if an array is not sorted
 
-If a given array is sorted, then for every element, we can use hash to query if a complement exists or not. Every element, can either already have a complement, if a complement exists, return index of current index and complement's index, else add current element and their index to hash table. Hash only take O(1) to query, there are n elements, so the worse case of time compleixity will be O(n).
+If a given array is sorted, then for every element, we can use hash to query if a complement exists or not. Every element, either already has a complement, if a complement does exist, just return both current index and index of its complement, else add current element and their index to hash table. The time complexity of Hash only take O(1) to search elements, there are n elements, so the worse case of time compleixity will be O(n).
 
 💻 [Code Here](./twoSum.js)
 
@@ -77,7 +77,7 @@ If a given array is sorted, then for every element, we can use hash to query if 
 
 #### if an array is sorted
 
-there are many ways to do this, one is using sliding window method, or binary search, which only take o(log N) time;
+there are many ways to approach this, one is using sliding window method, Or can try binary search, which only take o(log N) time.
 
 💻 [Code Here](./twoSum.js)
 
