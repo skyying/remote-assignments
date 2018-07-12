@@ -13,8 +13,14 @@ This week, I add some interaction to the responsive page made last week. Users c
 ### 1. Write a function to find max value of args
 
 ```
+// with Math.max
 const max = (...numbers) => {
     return numbers.reduce((max, val) => Math.max(val, max), Number.MIN_VALUE);
+}
+
+// without Math.max, using if expression
+const max = (...numbers) => {
+    return numbers.reduce((max, val) => val > max ? val : max, Number.MIN_VALUE);
 }
 ```
 
