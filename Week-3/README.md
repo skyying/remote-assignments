@@ -1,1 +1,3 @@
-Building website with React.js.
+
+Building a RWD webpage with React.js.
+

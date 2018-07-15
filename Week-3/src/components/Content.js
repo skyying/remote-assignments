@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {ITEM_NUM} from "./constant.js";
 import {ALL_ITEMS} from "./ALL_ITMES.js";
 
+
 /*
  * @param {object} ALL_ITEMS - data for loaded items
  * @param {string} ALL_ITEMS.title - title for item collection
@@ -10,15 +11,20 @@ import {ALL_ITEMS} from "./ALL_ITMES.js";
  */
 
 
+/*
+ * @param {string} name - class name
+ * @param {string} text - text shown on button
+ * @param {onClick} func - handleClick function
+ */
 
-const Button = ({name, text, update}) => {
+
+const Button = ({name, text, onClick}) => {
     return (
-        <button className={"btn " + name} onClick={update}>
+        <button className={"btn " + name} onClick={onClick}>
             <b>{text}</b>
         </button>
     );
 };
-
 
 
 class Content extends Component {
@@ -98,7 +104,7 @@ class Content extends Component {
                     <Button
                         name={this.state.isLoaded ? "showInfo" : "more"}
                         text={this.state.isLoaded ? "Back to top" : "More"}
-                        update={this.updateItems}
+                        onClick={this.updateItems}
                     />
                 </div>
             </div>

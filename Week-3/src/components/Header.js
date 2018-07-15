@@ -12,6 +12,7 @@ const Navigator = ({
     isSmallScreen,
     open,
 }) => {
+
     const toggleMenu = () => {
         if (isSmallScreen) {
             updateNav(!open);
@@ -46,6 +47,7 @@ const Navigator = ({
     );
 };
 
+
 Navigator.propTypes = {
     links: PropTypes.array,
     curIndex: PropTypes.number,
@@ -56,7 +58,9 @@ Navigator.propTypes = {
 };
 
 
+
 export default class Header extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -64,9 +68,11 @@ export default class Header extends Component {
             isSmallScreen: false,
             isNavOpen: false,
         };
+
         this.updatePage = this.updatePage.bind(this);
         this.updateScreenSize = this.updateScreenSize.bind(this);
         this.updateNav = this.updateNav.bind(this);
+
     }
     updatePage(index) {
         this.setState({
