@@ -10,7 +10,9 @@ class Navigator extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
     toggleMenu() {
-        this.props.updateNav(!this.props.open);
+        if(this.props.isSmallScreen) {
+            this.props.updateNav(!this.props.open);
+        }
     }
     handleClick(i) {
         this.toggleMenu();
@@ -95,6 +97,7 @@ export default class Header extends Component {
                         curIndex={this.state.curPageIndex}
                         updatePage={this.updatePage}
                         updateNav={this.updateNav}
+                        isSmallScreen={this.state.isSmallScreen}
                         open={this.state.isSmallScreen && this.state.isNavOpen}
                     />
                 </div>
