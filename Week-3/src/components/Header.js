@@ -3,41 +3,58 @@ import PropTypes from "prop-types";
 import {PAGES} from "./constant.js";
 import logo from "../Images/logo.svg";
 
-class Navigator extends Component {
-    constructor(props) {
-        super(props);
-        this.toggleMenu = this.toggleMenu.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-    }
-    toggleMenu() {
-        if(this.props.isSmallScreen) {
-            this.props.updateNav(!this.props.open);
+
+const Navigator = ({
+    links,
+    curIndex,
+    updatePage,
+    updateNav,
+    isSmallScreen,
+    open,
+}) => {
+    const toggleMenu = () => {
+        if (isSmallScreen) {
+            updateNav(!open);
         }
-    }
-    handleClick(i) {
-        this.toggleMenu();
-        this.props.updatePage(i);
-    }
-    render() {
-        const {links, curIndex, updatePage, updateNav, open} = this.props;
-        const items = links.map((text, i) => {
-            return (
-                <a
-                    className={curIndex === i ? "current" : ""}
-                    onClick={() => this.handleClick(i)}
-                    key={i}>
-                    {text}
-                </a>
-            );
-        });
+    };
+
+    const handleClick = i => {
+        toggleMenu();
+        updatePage(i);
+    };
+
+    const items = links.map((text, i) => {
         return (
-            <div id="navbar" className={"nav shadow " + (open ? "open" : "")}>
-                <button className="toggle-nav-btn" onClick={this.toggleMenu} />
-                {items}
-            </div>
+            <a
+                className={curIndex === i ? "current" : ""}
+                onClick={() => handleClick(i)}
+                key={i}>
+                {text}
+            </a>
         );
-    }
-}
+    });
+
+    const toggleBtn = (
+        <button className="toggle-nav-btn" onClick={() => toggleMenu()} />
+    );
+
+    return (
+        <div id="navbar" className={"nav shadow " + (open ? "open" : "")}>
+            {toggleBtn}
+            {items}
+        </div>
+    );
+};
+
+Navigator.propTypes = {
+    links: PropTypes.array,
+    curIndex: PropTypes.number,
+    updatePage: PropTypes.func,
+    updateNav: PropTypes.func,
+    isSmallScreen: PropTypes.bool,
+    open: PropTypes.bool,
+};
+
 
 export default class Header extends Component {
     constructor(props) {
