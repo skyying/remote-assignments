@@ -33,7 +33,6 @@ input.addEventListener(
             result.innerHTML = "?";
         } else {
             hint.innerHTML = "The sum is";
-            console.log("targetNumber", targetNumber);
             targetNumber.forEach(n => (n.innerHTML = number));
             get(url).then(text => {
                 let response = JSON.parse(text);
