@@ -1,24 +1,46 @@
-console.log(input);
+let xhttp = new XMLHttpRequest();
+let input = document.getElementById("input");
+let result = document.getElementById("result");
+let hint = document.querySelector(".hint");
+let targetNumber = document.querySelectorAll(".number");
 
-var xhttp = new XMLHttpRequest(),
-    url = "";
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        // Typical action to be performed when the document is ready:
-        //document.getElementById("demo").innerHTML = xhttp.responseText;
-    }
-};
+function get(url) {
+    return new Promise(function(resolve, reject) {
+        var req = new XMLHttpRequest();
+        req.open("GET", url);
+        req.onload = function() {
+            if (req.status === 200 && req.readyState === 4) {
+                console.log(req);
+                resolve(req.responseText);
+            } else {
+                reject(Error(req.statusText));
+            }
+        };
+        req.onerror = function() {
+            reject(Error("Network Error"));
+        };
+        req.send();
+    });
+}
 
-document.addEventListener(
-    "DOMContentLoaded",
+input.addEventListener(
+    "input",
     function(e) {
-        // url = `/getData?number=${e.target.value}`;
-        var input = document.querySelector("input");
-        console.log(e.target.value);
-
+        let number = +e.target.value;
+        url = "/getData?number=" + number;
+        if (number < 0 || !e.target.value) {
+            hint.innerHTML = "Enter a number greater than zero";
+            result.innerHTML = "?";
+        } else {
+            hint.innerHTML = "The sum is";
+            console.log("targetNumber", targetNumber);
+            targetNumber.forEach(n => (n.innerHTML = number));
+            get(url).then(text => {
+                let response = JSON.parse(text);
+                text = response.sum;
+                result.innerHTML = text;
+            });
+        }
     },
     false,
 );
-
-xhttp.open("GET", url, true);
-xhttp.send();

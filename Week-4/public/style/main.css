@@ -7,10 +7,46 @@ body {
     text-align: center;
 }
 
+h2 {
+    font-size: 1em;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+input {
+    background-color: transparent;
+    border: 1px solid #dfdfdf;
+    border-radius: 8px;
+    padding: 5px;
+    padding-left: 20px;
+    font-size: 1em;
+    font-family: "Kirang Haerang", cursive;
+}
+::placeholder {
+    color: #dfdfdf;
+}
 h1 {
     font-size: 3em;
 }
 
 p {
     font-size: 25px;
+}
+
+#result {
+    font-size: 2em;
+}
+
+.notes {
+    font-size: 30px;
+    color: #dfdfdf;
+}
+
+.number, input, b{
+    color: #1e39df;
 }
