@@ -10,7 +10,6 @@ function get(url) {
         req.open("GET", url);
         req.onload = function() {
             if (req.status === 200 && req.readyState === 4) {
-                console.log(req);
                 resolve(req.responseText);
             } else {
                 reject(Error(req.statusText));
@@ -23,6 +22,7 @@ function get(url) {
     });
 }
 
+// handle input logic
 input.addEventListener(
     "input",
     function(e) {

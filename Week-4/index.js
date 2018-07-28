@@ -5,27 +5,21 @@ const express = require("express");
 const app = express();
 
 // will send a html page to localhost 3000
-var root = path.join(__dirname, "/public");
+var public = path.join(__dirname, "/public");
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-    res.sendFile(`${root}` + "/index.html");
+    res.sendFile(`${public}` + "/index.html");
 });
-
-
-// app.get("/style/main.css", (req, res) => {
-//     res.sendFile(`${root}` + "/main.css");
-// });
-
 
 app.get("/:getData/", async function(req, res) {
     if (!req.query.number) {
-        res.sendFile(`${root}` + "/error.html");
+        res.sendFile(`${public}` + "/error.html");
     } else {
         let number = +req.query.number;
-        let sum = (number * number + number) / 2;
-        res.send("sum is " + sum);
+        let total = (number * number + number) / 2;
+        res.send({sum: total});
         res.end();
     }
 });
